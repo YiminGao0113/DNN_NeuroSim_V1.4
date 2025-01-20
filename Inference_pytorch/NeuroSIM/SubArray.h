@@ -79,7 +79,7 @@ public:
 
 	/* Functions */
 	void PrintProperty();
-	void Initialize(int _numRow, int _numCol, double _unitWireRes);
+	void Initialize(int _numRow, int _numCol, double _unitWireRes, int _numChannels);
 	void CalculateArea();
 	void CalculateLatency(double _rampInput, const vector<double> &columnResistance, bool CalculateclkFreq);
 	void CalculatePower(const vector<double> &columnResistance);
@@ -93,6 +93,7 @@ public:
 	int numWriteColMuxed;	// // How many columns share 1 write column decoder driver (for memory or neuro mode with digital RRAM)
 	int totalNumWritePulse;
 	int numWritePulseAVG;
+	int numChannels;
 	double heightArray;
 	double widthArray;
 	double areaArray;
@@ -197,7 +198,7 @@ public:
 	ShiftAdd                 shiftAddWeight;
 	MultilevelSenseAmp       multilevelSenseAmp;
 	MultilevelSAEncoder      multilevelSAEncoder;
-	SarADC                   sarADC;
+	std::vector<SarADC>      sarADCs;
 };
 
 #endif /* SUBARRAY_H_ */

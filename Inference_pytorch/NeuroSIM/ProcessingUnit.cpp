@@ -150,6 +150,7 @@ void ProcessingUnitInitialize(SubArray *& subArray, InputParameter& inputParamet
 	subArray->conventionalSequential = param->conventionalSequential;                 
 	subArray->numRow = param->numRowSubArray;
 	subArray->numCol = param->numRowSubArray;
+	subArray->numChannels = param->numChannels;
 	subArray->levelOutput = param->levelOutput;
 	subArray->numColMuxed = param->numColMuxed;               // How many columns share 1 read circuit (for neuro mode with analog RRAM) or 1 S/A (for memory mode or neuro mode with digital RRAM)
     subArray->clkFreq = param->clkFreq;                       // Clock frequency
@@ -186,7 +187,7 @@ void ProcessingUnitInitialize(SubArray *& subArray, InputParameter& inputParamet
 	int numSubArrayRowCM = _numSubArrayRowCM;
 	int numSubArrayColCM = _numSubArrayColCM;
 	/*** initialize modules ***/
-	subArray->Initialize(numRow, numCol, param->unitLengthWireResistance);        // initialize subArray
+	subArray->Initialize(numRow, numCol, param->unitLengthWireResistance, param->numChannels);        // initialize subArray
 	subArray->CalculateArea();
 	// Anni update: numBitSubarrayOutput
 	int numBitSubarrayOutput = 0;

@@ -65,7 +65,7 @@ public:
 	double algoWeightMax, algoWeightMin;
 	
 	int neuro, multifunctional, parallelWrite, parallelRead;
-	int numlut, numColMuxed, numWriteColMuxed, levelOutput, avgWeightBit, numBitInput;
+	int numlut, numColMuxed, numWriteColMuxed, levelOutput, avgWeightBit, numBitInput, numChannels;
 	int numRowSubArray, numColSubArray;
 	int cellBit, synapseBit;
 	int speedUpDegree;
